@@ -50,7 +50,7 @@ A arquitetura segue os princípios SOLID e está dividida em:
    ```
 5. Validação dos Logs no Banco de Dados:
    ```bash
-   docker exec -it mongodb mongosh
+   docker exec -it mongo_db mongosh
    
    use cepdb
    
@@ -64,15 +64,33 @@ A arquitetura segue os princípios SOLID e está dividida em:
 
 ## 📊 Estrutura do Banco de Dados
 
-Os logs são armazenados com os seguintes campos:
-- **id**: Identificador único
-- **cep**: CEP consultado
-- **dados**: Resposta da API externa
-- **dataConsulta**: Data e hora da consulta
+Os logs das consultas de CEP são armazenados com os seguintes campos:
+
+- **_id**: Identificador único do documento no MongoDB.
+- **cep**: CEP consultado.
+- **logradouro**: Nome da rua ou praça correspondente ao CEP.
+- **bairro**: Bairro correspondente ao CEP.
+- **cidade**: Cidade onde o CEP está localizado.
+- **estado**: Estado onde o CEP está localizado.
+- **consultaHora**: Data e hora da consulta no formato ISODate.
+- **_class**: Classe Java que representa o documento no Spring Data MongoDB.
+
+### 🔍 **Exemplo de Registro no Banco**
+```json
+{
+    "_id": ObjectId("67d45f7dc78207645b606144"),
+    "cep": "01001-000",
+    "logradouro": "Praça da Sé",
+    "bairro": "Sé",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "consultaHora": ISODate("2025-03-14T16:55:25.914Z"),
+    "_class": "com.matheuspierro.zip_tracker.model.CepLog"
+}
+```
 
 ## 📢 Apresentação
-- Explicação do desenho da solução.
-- Demonstração do código e execução da aplicação.
+![Demonstração](Demonstração.jpg)
 
 ## 📎 Repositório
 [GitHub - Link para o projeto](https://github.com/matheusPierro/zip-tracker)
