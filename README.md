@@ -1,38 +1,40 @@
-# API de Consulta de CEP
+# API de Monitoramento de Consulta de CEP
 
 ## 📌 Sobre o Projeto
-Esta aplicação permite a busca de endereços a partir de um CEP, consumindo uma API externa mockada via Wiremock/Mockoon. Todas as consultas são registradas em um banco de dados, incluindo o horário da requisição e os dados retornados.
+Esta aplicação permite a busca de endereços a partir de um CEP, consumindo uma API externa mockada via Wiremock. Todas as consultas são registradas em um banco de dados, incluindo o horário da requisição e os dados retornados.
 
 ## 🏗️ Arquitetura da Solução
 
 A arquitetura segue os princípios SOLID e está dividida em:
 - **Controller**: Exposição dos endpoints REST.
 - **Service**: Lógica de negócio para busca de CEP e armazenamento de logs.
+- **Client**: Consumo de endpoint externo para busca de CEP mockado.
+- **Wiremock**: Simulação da API externa de CEP.
+- **Model**: Camada de criação de Entidades para o Banco de Dados.
 - **Repository**: Persistência dos logs de consulta.
-- **Wiremock/Mockoon**: Simulação da API externa de CEP.
 - **Banco de Dados**: Armazena logs das consultas.
 
-![Diagrama da Solução](caminho/para/diagrama.png)
+![Diagrama da Solução](Diagrama de Solução.jpg)
 
 ## 🚀 Tecnologias Utilizadas
-- **Java 11+**
+- **Java 21**
 - **Spring Boot**
-- **Wiremock/Mockoon**
-- **MongoDB/PostgreSQL**
-- **Docker e Docker Compose** (Diferencial)
-- **AWS** (Opcional)
+- **Wiremock**
+- **MongoDB**
+- **Docker e Docker Compose**
+- **AWS CloudWatch**
 
 ## 📦 Como Executar o Projeto
 
 ### ✅ Pré-requisitos
-- Docker instalado (caso utilize `docker-compose`)
-- Java 11+ e Maven instalados
+- Docker instalado
+- Java 21 e Gradle instalados
 
 ### 🔧 Passo a Passo
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/matheusPierro/zip-tracker.git
+   cd zip-tracker
    ```
 2. Suba os containers do banco de dados e mock da API:
    ```bash
@@ -40,19 +42,25 @@ A arquitetura segue os princípios SOLID e está dividida em:
    ```
 3. Execute a aplicação via Maven:
    ```bash
-   mvn spring-boot:run
+   ./gradlew bootRun
    ```
 4. Acesse os endpoints da API:
    ```bash
-   curl -X GET "http://localhost:8080/api/cep/{cep}" -H "Content-Type: application/json"
+   curl http://localhost:8080/cep/01001-000
    ```
-
+5. Validação dos Logs no Banco de Dados:
+   ```bash
+   docker exec -it mongodb mongosh
+   
+   use cepdb
+   
+   db.cep_logs.find().pretty()
+   ```
 ## 📝 Endpoints Disponíveis
 
-| Método | URL                     | Descrição |
-|--------|--------------------------|-------------|
-| GET    | `/api/cep/{cep}`         | Retorna os dados do CEP |
-| GET    | `/api/logs`              | Retorna o histórico de consultas |
+| Método | URL                  | Descrição               |
+|--------|----------------------|-------------------------|
+| GET    | `/cep/{cep}`         | Retorna os dados do CEP |
 
 ## 📊 Estrutura do Banco de Dados
 
@@ -62,17 +70,16 @@ Os logs são armazenados com os seguintes campos:
 - **dados**: Resposta da API externa
 - **dataConsulta**: Data e hora da consulta
 
-## 📌 Testes e Validação
-- Testes unitários com JUnit e Mockito.
-- Testes de integração com Spring Boot Test.
-
 ## 📢 Apresentação
 - Explicação do desenho da solução.
 - Demonstração do código e execução da aplicação.
 
 ## 📎 Repositório
-[GitHub - Link para o projeto](https://github.com/seu-usuario/seu-repositorio)
+[GitHub - Link para o projeto](https://github.com/matheusPierro/zip-tracker)
 
 ---
 ✉️ Qualquer dúvida, entre em contato!
+
+- **Email** - matpierro570@gmail.com
+- **Whatsapp** - (11)961065956
 
