@@ -1,7 +1,7 @@
 # API de Monitoramento de Consulta de CEP
 
 ## 📌 Sobre o Projeto
-Esta aplicação permite a busca de endereços a partir de um CEP, consumindo uma API externa mockada via Wiremock. Todas as consultas são registradas em um banco de dados, incluindo o horário da requisição e os dados retornados.
+Esta aplicação permite a busca de endereços a partir de um CEP, consumindo uma API externa mockada via Wiremock. Todas as consultas são registradas em um banco de dados, incluindo o horário da requisição e os dados retornados. Além disso, a aplicação envia logs para o **AWS CloudWatch** para monitoramento em tempo real.
 
 ## 🏗️ Arquitetura da Solução
 
@@ -13,6 +13,7 @@ A arquitetura segue os princípios SOLID e está dividida em:
 - **Model**: Camada de criação de Entidades para o Banco de Dados.
 - **Repository**: Persistência dos logs de consulta.
 - **Banco de Dados**: Armazena logs das consultas.
+- **AWS CloudWatch**: Para monitoramento e registro das métricas de consultas.
 
 ![Diagrama da Solução](Diagrama de Solução.jpg)
 
@@ -29,6 +30,7 @@ A arquitetura segue os princípios SOLID e está dividida em:
 ### ✅ Pré-requisitos
 - Docker instalado
 - Java 21 e Gradle instalados
+- Conta da AWS configurada (para enviar logs para o CloudWatch)
 
 ### 🔧 Passo a Passo
 1. Clone o repositório:
@@ -56,6 +58,17 @@ A arquitetura segue os princípios SOLID e está dividida em:
    
    db.cep_logs.find().pretty()
    ```
+6. Validação dos Logs no AWS CloudWatch:
+   ```bash
+   - Acesse o AWS CloudWatch pelo console da AWS.
+   
+   - No menu lateral, clique em Logs.
+   
+   - Você encontrará as métricas de consultas realizadas no grupo de logs "ZipTracker", com a métrica "CepConsultado".
+   
+   - As métricas incluem detalhes como o CEP consultado e o número de consultas realizadas.
+   ```
+
 ## 📝 Endpoints Disponíveis
 
 | Método | URL                  | Descrição               |
@@ -91,6 +104,7 @@ Os logs das consultas de CEP são armazenados com os seguintes campos:
 
 ## 📢 Apresentação
 ![Demonstração](Demonstração.jpg)
+![Demonstração](DemonstrativoAws.jpg)
 
 ## 📎 Repositório
 [GitHub - Link para o projeto](https://github.com/matheusPierro/zip-tracker)
