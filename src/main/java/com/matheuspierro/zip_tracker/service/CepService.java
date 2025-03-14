@@ -16,6 +16,7 @@ public class CepService {
 
     private final CepClient cepClient;
     private final CepLogRepository cepLogRepository;
+    private final AwsLoggingService awsLoggingService;
 
     public CepLog buscarCep(String cep) {
         CepResponse response = cepClient.buscarCep(cep);
@@ -29,6 +30,7 @@ public class CepService {
         log.setConsultaHora(LocalDateTime.now());
 
         cepLogRepository.save(log);
+        awsLoggingService.logConsulta(cep, log.toString());
         return log;
     }
 }
