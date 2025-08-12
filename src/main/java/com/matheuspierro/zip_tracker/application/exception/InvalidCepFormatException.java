@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.commons.exception;
+package com.matheuspierro.zip_tracker.application.exception;
 
 public class InvalidCepFormatException extends RuntimeException {
     public InvalidCepFormatException(String message) {

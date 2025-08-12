@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.config;
+package com.matheuspierro.zip_tracker.infrastructure.config;
 
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.regions.Region;

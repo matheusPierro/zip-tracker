@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.config;
+package com.matheuspierro.zip_tracker.infrastructure.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;

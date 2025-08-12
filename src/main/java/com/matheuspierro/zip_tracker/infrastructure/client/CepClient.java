@@ -1,7 +1,7 @@
-package com.matheuspierro.zip_tracker.client;
+package com.matheuspierro.zip_tracker.infrastructure.client;
 
-import com.matheuspierro.zip_tracker.client.dto.CepResponse;
-import com.matheuspierro.zip_tracker.config.FeignConfig;
+import com.matheuspierro.zip_tracker.application.dto.CepResponse;
+import com.matheuspierro.zip_tracker.infrastructure.config.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

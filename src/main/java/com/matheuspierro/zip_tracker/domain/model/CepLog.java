@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.model;
+package com.matheuspierro.zip_tracker.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

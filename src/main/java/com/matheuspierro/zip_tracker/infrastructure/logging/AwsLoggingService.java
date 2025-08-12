@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.service;
+package com.matheuspierro.zip_tracker.infrastructure.logging;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

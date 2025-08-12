@@ -1,11 +1,12 @@
-package com.matheuspierro.zip_tracker.service;
+package com.matheuspierro.zip_tracker.application.service;
 
-import com.matheuspierro.zip_tracker.client.CepClient;
-import com.matheuspierro.zip_tracker.client.dto.CepResponse;
-import com.matheuspierro.zip_tracker.commons.exception.CepNotFoundException;
-import com.matheuspierro.zip_tracker.commons.exception.ExternalServiceException;
-import com.matheuspierro.zip_tracker.model.CepLog;
-import com.matheuspierro.zip_tracker.repository.CepLogRepository;
+import com.matheuspierro.zip_tracker.application.exception.ExternalServiceException;
+import com.matheuspierro.zip_tracker.infrastructure.client.CepClient;
+import com.matheuspierro.zip_tracker.application.dto.CepResponse;
+import com.matheuspierro.zip_tracker.application.exception.CepNotFoundException;
+import com.matheuspierro.zip_tracker.domain.model.CepLog;
+import com.matheuspierro.zip_tracker.domain.repository.CepLogRepository;
+import com.matheuspierro.zip_tracker.infrastructure.logging.AwsLoggingService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;

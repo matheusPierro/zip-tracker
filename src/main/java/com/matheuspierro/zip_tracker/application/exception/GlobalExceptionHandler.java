@@ -1,6 +1,6 @@
-package com.matheuspierro.zip_tracker.commons.exception;
+package com.matheuspierro.zip_tracker.application.exception;
 
-import com.matheuspierro.zip_tracker.service.dto.ApiResponse;
+import com.matheuspierro.zip_tracker.application.dto.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

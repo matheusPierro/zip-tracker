@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.service.dto;
+package com.matheuspierro.zip_tracker.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

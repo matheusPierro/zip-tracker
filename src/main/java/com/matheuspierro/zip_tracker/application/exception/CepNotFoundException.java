@@ -1,4 +1,4 @@
-package com.matheuspierro.zip_tracker.commons.exception;
+package com.matheuspierro.zip_tracker.application.exception;
 
 public class CepNotFoundException extends RuntimeException {
     public CepNotFoundException(String message) {

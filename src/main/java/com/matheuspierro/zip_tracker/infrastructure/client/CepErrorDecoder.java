@@ -1,7 +1,7 @@
-package com.matheuspierro.zip_tracker.config;
+package com.matheuspierro.zip_tracker.infrastructure.client;
 
-import com.matheuspierro.zip_tracker.commons.exception.CepNotFoundException;
-import com.matheuspierro.zip_tracker.commons.exception.ExternalServiceException;
+import com.matheuspierro.zip_tracker.application.exception.CepNotFoundException;
+import com.matheuspierro.zip_tracker.application.exception.ExternalServiceException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import com.fasterxml.jackson.databind.ObjectMapper;

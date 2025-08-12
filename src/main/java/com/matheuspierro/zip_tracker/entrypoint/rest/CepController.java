@@ -1,11 +1,11 @@
-package com.matheuspierro.zip_tracker.controller;
+package com.matheuspierro.zip_tracker.entrypoint.rest;
 
 
-import com.matheuspierro.zip_tracker.commons.exception.InvalidCepFormatException;
+import com.matheuspierro.zip_tracker.application.exception.InvalidCepFormatException;
 import com.matheuspierro.zip_tracker.commons.utils.CepUtils;
-import com.matheuspierro.zip_tracker.model.CepLog;
-import com.matheuspierro.zip_tracker.service.CepService;
-import com.matheuspierro.zip_tracker.service.dto.ApiResponse;
+import com.matheuspierro.zip_tracker.domain.model.CepLog;
+import com.matheuspierro.zip_tracker.application.service.CepService;
+import com.matheuspierro.zip_tracker.application.dto.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
