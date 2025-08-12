@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/cep/00000404"
+  },
+  "response": {
+    "status": 404,
+    "jsonBody": {
+      "error": "CEP não encontrado",
+      "message": "Não há dados para o CEP informado."
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

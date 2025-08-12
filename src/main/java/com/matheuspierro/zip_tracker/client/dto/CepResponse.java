@@ -1,8 +1,12 @@
-package com.matheuspierro.zip_tracker.client;
+package com.matheuspierro.zip_tracker.client.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CepResponse {
     private String cep;
     private String logradouro;
@@ -10,3 +14,4 @@ public class CepResponse {
     private String cidade;
     private String estado;
 }
+

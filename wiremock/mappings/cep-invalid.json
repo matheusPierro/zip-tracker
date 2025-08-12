@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/cep/0000000"
+  },
+  "response": {
+    "status": 400,
+    "jsonBody": {
+      "error": "CEP inválido",
+      "message": "O formato do CEP informado está incorreto."
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

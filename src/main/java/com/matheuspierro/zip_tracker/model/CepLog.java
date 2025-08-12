@@ -21,4 +21,8 @@ public class CepLog {
     private String cidade;
     private String estado;
     private LocalDateTime consultaHora;
+    private String status;
+    private Long responseTimeMs;
+    private String rawResponse;
 }
+
